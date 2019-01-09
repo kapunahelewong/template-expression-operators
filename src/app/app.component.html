@@ -1,20 +1,76 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+
+
+<h1>{{title}}</h1>
+
+<hr />
+
+<h2 id="pipes">Pipes</h2>
+
+<p>Title through uppercase pipe: {{title | uppercase}}</p>
+
+<h3>Pipe chaining: convert title to uppercase, then to lowercase </h3>
+
+<p>Title through a pipe chain: {{title | uppercase | lowercase}}</p>
+
+
+<p>Current hero json pipe: {{hero | json}}</p>
+<p>Birthdate with date format pipe: {{hero?.birthdate | date:'longDate'}}</p>
+<p>Birthdate with uppercase pipe: {{(hero?.birthdate | date:'longDate') | uppercase}}</p>
+
+<p>
+  <!-- pipe price to USD and display the $ symbol -->
+  <label>Price with currency pipe: </label>{{product.price | currency:'USD'}}
+</p>
+
+<!-- Null values and the safe navigation operator -->
+<hr />
+
+<h2>Safe navigation operator: <code>?</code> and <code>null</code></h2>
+
+<p>
+  The nullhero's name is: {{nullhero?.name}}
+</p>
+
+<p>
+  The hero's name is: {{hero.name}}
+</p>
+
+<hr />
+<h2>Error if null:</h2>
+<!-- The null hero's name is {{nullHero.name}} -->
+
+<div><p>See console log for error about nullHero.name:</p>
+  <p>TypeError: Cannot read property 'name' of null in [null]</p>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+
+<hr />
+
+<h2>The div will not display and there's no error: </h2>
+<!--No hero, div not displayed, no error -->
+<div class="no-show-div">
+  <p>There's a child div in here that won't show.</p>
+  <p *ngIf="nullHero">The null hero's name {{nullHero.name}}</p>
+</div>
+<hr />
+
+<h2>Div will show but interpolation will not:</h2>
+<div>
+  <h3>Using and (<code>&&</code>)</h3>
+  <p>The null hero's name is: {{nullHero && nullHero.name}}</p>
+</div>
+
+<div>
+  <h3>Using Safe Navigation Operator (<code>?</code>)</h3>
+  <!-- No hero, no problem! -->
+  <p>The null hero's name is {{nullHero?.name}}</p>
+</div>
+
+
+<!-- non-null assertion operator -->
+<hr />
+<h2>Non-null assertion operator <code>!.</code></h2>
+<div>
+  <!--No hero, no text -->
+  <p *ngIf="hero">The hero's name is {{hero!.name}}</p>
+</div>
 
