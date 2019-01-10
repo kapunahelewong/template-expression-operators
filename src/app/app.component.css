@@ -3,3 +3,7 @@
   border: 1px #444 solid;
   padding: 1rem;
 }
+
+.error {
+  color: red;
+}

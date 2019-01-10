@@ -9,23 +9,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Template Expression Operators';
-  // currentHero: hero;
 
-  product = {
-    name: 'frimfram',
-    price: 42
-  };
-
-
-
-
-  hero = {
-    name : 'Bob',
-    birthdate : new Date(1930, 1, 25),
+  item = {
+    name : 'Telephone',
+    manufactureDate : new Date(1980, 1, 25),
     price: 98
   };
 
-  nullhero = null;
+  nullItem = null;
 
 }
 
